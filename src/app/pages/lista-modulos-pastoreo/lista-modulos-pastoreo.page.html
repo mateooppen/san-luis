@@ -9,8 +9,8 @@
 
 <ion-content>
   <ion-list>
-    <!-- <ion-searchbar inputmode="numeric" (ionChange)="buscarModulo($event)" placeholder="Buscar Parcela"></ion-searchbar> -->
-    <ion-item button (click)="editarModulo(modulo)" *ngFor="let modulo of listaModulosPastoreo">
+    <ion-searchbar inputmode="numeric" (ionChange)="buscarModulo($event)" placeholder="Buscar Modulo"></ion-searchbar>
+    <ion-item button (click)="editarModulo(modulo)" *ngFor="let modulo of listaModulosPastoreo | filtroModulos:filtroBusqueda">
       <ion-label>Modulo: {{modulo.id}}</ion-label>
     </ion-item>
   </ion-list>

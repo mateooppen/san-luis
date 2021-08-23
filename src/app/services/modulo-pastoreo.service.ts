@@ -23,6 +23,10 @@ export class ModuloPastoreoService {
             );
   }
 
+  editarModulo(modulo) {
+    return this.http.put(`${ this.url }/modulosPastoreo/${ modulo.value.id }.json`, modulo.value);
+  }
+
   getModulos() {
     return this.http.get(`${ this.url }/modulosPastoreo.json`)
             .pipe(

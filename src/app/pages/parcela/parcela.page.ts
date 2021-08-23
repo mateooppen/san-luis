@@ -59,7 +59,7 @@ export class ParcelaPage implements OnInit {
       });
     }
     else {
-      this.parcelaForm.reset();
+      this.crearFormulario();
     }
   }
 

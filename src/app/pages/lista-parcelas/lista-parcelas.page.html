@@ -10,14 +10,14 @@
 <ion-content>
   <ion-list>
     <ion-searchbar inputmode="numeric" (ionChange)="buscarParcela($event)" placeholder="Buscar Parcela"></ion-searchbar>
-    <ion-item button (click)="editarParcela(parcela)" *ngFor="let parcela of listaParcelas | filtro:filtroBusqueda">
+    <ion-item button (click)="editarParcela(parcela)" *ngFor="let parcela of listaParcelas | filtroParcelas:filtroBusqueda">
       <ion-label slot="start">Parcela {{parcela.numeroParcela}}</ion-label>
       <ion-badge *ngIf="parcela.activa" color="primary">Activa</ion-badge>
       <ion-badge *ngIf="!parcela.activa" color="medium">Inactiva</ion-badge>
       <!-- <ion-button slot="end" type="button" color="light" (click)="editarParcela(parcela)"><ion-icon name="create-outline" color="dark"></ion-icon></ion-button> -->
     </ion-item>
   </ion-list>
-  <ion-fab vertical="end" horizontal="end">
+  <ion-fab vertical="bottom" horizontal="end">
     <ion-fab-button>
       <ion-icon name="add" (click)="nuevaParcela()"></ion-icon>
     </ion-fab-button>

@@ -1,7 +1,10 @@
+import { Router } from '@angular/router';
 import { ModuloPastoreoService } from './../../services/modulo-pastoreo.service';
 import { FormGroup, FormControl, FormBuilder } from '@angular/forms';
 import { ModuloPastoreoModel } from './../../models/modulo-pastoreo.model';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-modulo-pastoreo',
@@ -25,7 +28,7 @@ export class ModuloPastoreoPage implements OnInit {
     observaciones: new FormControl()
   });
 
-  constructor( private moduloService: ModuloPastoreoService,  private fb: FormBuilder ) {
+  constructor( private moduloService: ModuloPastoreoService,  private fb: FormBuilder, private router: Router ) {
     this.crearFormulario();
   }
 
@@ -39,7 +42,7 @@ export class ModuloPastoreoPage implements OnInit {
       });
     }
     else {
-      this.moduloForm.reset();
+      this.crearFormulario();
     }
 
   }
@@ -60,9 +63,34 @@ export class ModuloPastoreoPage implements OnInit {
   }
 
   guardar(moduloForm: FormGroup) {
-    this.moduloService.crearModulo(moduloForm).subscribe( res => {
-      console.log(res);
+
+    Swal.fire({
+      title: 'Espere',
+      text: 'Guardando información',
+      icon: 'info',
+      allowOutsideClick: false
     });
+    Swal.showLoading();
+
+    let peticion: Observable<any>;
+
+    if( moduloForm.value.id !== '' ) {
+      peticion = this.moduloService.editarModulo( moduloForm );
+    } else {
+      peticion = this.moduloService.crearModulo( moduloForm );
+    }
+
+    peticion.subscribe( resp => {
+      Swal.fire({
+        title: 'Modulo Pastoreo:' + moduloForm.value.id,
+        text: 'Se actualizó correctamente',
+        icon: 'success'
+      }).then( res => {
+        window.location.reload();
+      });
+    });
+
+    this.router.navigate(['/lista-modulos-pastoreo']);
   }
 
 }

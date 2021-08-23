@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class ListaModulosPastoreoPage implements OnInit {
 
   listaModulosPastoreo: ModuloPastoreoModel[] = [];
+  filtroBusqueda = '';
 
   constructor( private moduloService: ModuloPastoreoService, private router: Router ) {
     this.moduloService.getModulos().subscribe( resp => {
@@ -32,6 +33,10 @@ export class ListaModulosPastoreoPage implements OnInit {
   editarModulo(modulo) {
     this.moduloService.moduloSeleccionado = modulo;
     this.router.navigate(['/modulo-pastoreo']);
+  }
+
+  buscarModulo(event){
+    this.filtroBusqueda = event.detail.value;
   }
 
 }
