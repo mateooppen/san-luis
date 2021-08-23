@@ -18,6 +18,14 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'parcela',
+    loadChildren: () => import('./pages/parcela/parcela.module').then( m => m.ParcelaPageModule)
+  },
+  {
+    path: 'lista-parcelas',
+    loadChildren: () => import('./pages/lista-parcelas/lista-parcelas.module').then( m => m.ListaParcelasPageModule)
   }
 ];
 

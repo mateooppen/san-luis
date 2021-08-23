@@ -1,3 +1,5 @@
+import { ListaParcelasPageModule } from './../lista-parcelas/lista-parcelas.module';
+import { ParcelaPageModule } from './../parcela/parcela.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
@@ -12,7 +14,9 @@ import { HomePageRoutingModule } from './home-routing.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    HomePageRoutingModule
+    HomePageRoutingModule,
+    ParcelaPageModule,
+    ListaParcelasPageModule
   ],
   declarations: [HomePage]
 })

@@ -20,11 +20,8 @@ export class RegistroPage implements OnInit {
 
   onSubmit( form: NgForm ) {
 
-    this.auth.nuevoUsuario( this.usuario ).subscribe( resp => {
-
-      console.log(resp);
-
-    },(err) => {
+    this.auth.nuevoUsuario( this.usuario ).subscribe( resp => {}
+      ,(err) => {
 
       console.log(err.error.error.message);
 

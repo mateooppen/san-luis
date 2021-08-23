@@ -1,0 +1,98 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/" slot="start"></ion-back-button>
+    </ion-buttons>
+    <ion-title slot="end">Ingresar Datos de Parcela</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form [formGroup]="parcelaForm" (ngSubmit)="guardar(parcelaForm)">
+
+    <ion-list>
+      <ion-item>
+        <ion-label>Parcela número</ion-label>
+        <ion-input formControlName="numeroParcela" type="number" placeholder="Ingresar parcela" slot="end"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Categoria</ion-label>
+        <ion-select formControlName="categoria" multiple="true">
+          <ion-select-option *ngFor="let categoria of categorias">{{categoria}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cantidad</ion-label>
+        <ion-input type="number" slot="end" formControlName="cantidad" placeholder="Ingresar cantidad"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Dueño</ion-label>
+        <ion-select value="San Luis" formControlName="dueño">
+          <ion-select-option>San Luis</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Próxima parcela</ion-label>
+        <ion-input formControlName="proxima" type="number" slot="end" placeholder="Ingresar parcela"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Agua</ion-label>
+        <ion-toggle formControlName="agua" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Sombra</ion-label>
+        <ion-toggle formControlName="sombra" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Estado</ion-label>
+        <ion-select formControlName="estado">
+          <ion-select-option *ngFor="let estado of estados">{{estado}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Remanente</ion-label>
+        <ion-select formControlName="remanente">
+          <ion-select-option *ngFor="let remanente of remanentes">{{remanente}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Malezas</ion-label>
+        <ion-select formControlName="maleza" placeholder="Seleccionar malezas" multiple="true">
+          <ion-select-option *ngFor="let maleza of malezas">{{maleza}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label>Desmalezar</ion-label>
+        <ion-toggle formControlName="desmalezar" slot="end"></ion-toggle>
+      </ion-item>
+      <ion-item>
+        <ion-label>Última lluvia</ion-label>
+        <ion-datetime formControlName="ultimaLluvia" displayFormat="DD/MM/YY" placeholder="Seleccionar fecha"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label>Cantidad de lluvia</ion-label>
+        <ion-input formControlName="cantidadLluvia" type="number" placeholder="Ingresar mms" slot="end"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Hongos</ion-label>
+        <ion-toggle formControlName="hongos" slot="end"></ion-toggle>
+      </ion-item>
+    </ion-list>
+
+    <ion-button type="submit" expand="block">Guardar</ion-button>
+
+  </form>
+
+  <!-- <hr>
+  <pre>
+    Estado del formulario: {{parcelaForm.valid}}
+    <br>
+    Status: {{parcelaForm.status}}
+  </pre>
+
+  <pre>
+    {{parcelaForm.value | json}}
+  </pre> -->
+
+</ion-content>

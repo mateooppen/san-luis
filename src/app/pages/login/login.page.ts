@@ -22,7 +22,6 @@ export class LoginPage implements OnInit {
     this.auth.login( this.usuario )
       .subscribe( resp => {
 
-        console.log(resp);
         this.router.navigateByUrl('/home');
 
       }, (err) => {
