@@ -26,6 +26,14 @@ const routes: Routes = [
   {
     path: 'lista-parcelas',
     loadChildren: () => import('./pages/lista-parcelas/lista-parcelas.module').then( m => m.ListaParcelasPageModule)
+  },
+  {
+    path: 'modulo-pastoreo',
+    loadChildren: () => import('./pages/modulo-pastoreo/modulo-pastoreo.module').then( m => m.ModuloPastoreoPageModule)
+  },
+  {
+    path: 'lista-modulos-pastoreo',
+    loadChildren: () => import('./pages/lista-modulos-pastoreo/lista-modulos-pastoreo.module').then( m => m.ListaModulosPastoreoPageModule)
   }
 ];
 

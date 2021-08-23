@@ -18,7 +18,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Categoria</ion-label>
-        <ion-select formControlName="categoria" multiple="true">
+        <ion-select formControlName="categoria" multiple="true" placeholder="Seleccionar categoria">
           <ion-select-option *ngFor="let categoria of categorias">{{categoria}}</ion-select-option>
         </ion-select>
       </ion-item>
@@ -28,7 +28,7 @@
       </ion-item>
       <ion-item>
         <ion-label>Dueño</ion-label>
-        <ion-select value="San Luis" formControlName="dueño">
+        <ion-select formControlName="dueño" placeholder="Seleccionar dueño">
           <ion-select-option>San Luis</ion-select-option>
         </ion-select>
       </ion-item>
@@ -46,13 +46,13 @@
       </ion-item>
       <ion-item>
         <ion-label>Estado</ion-label>
-        <ion-select formControlName="estado">
+        <ion-select formControlName="estado" placeholder="Seleccionar estado">
           <ion-select-option *ngFor="let estado of estados">{{estado}}</ion-select-option>
         </ion-select>
       </ion-item>
       <ion-item>
         <ion-label>Remanente</ion-label>
-        <ion-select formControlName="remanente">
+        <ion-select formControlName="remanente" placeholder="Seleccionar remanente">
           <ion-select-option *ngFor="let remanente of remanentes">{{remanente}}</ion-select-option>
         </ion-select>
       </ion-item>
@@ -83,16 +83,5 @@
     <ion-button type="submit" expand="block">Guardar</ion-button>
 
   </form>
-
-  <!-- <hr>
-  <pre>
-    Estado del formulario: {{parcelaForm.valid}}
-    <br>
-    Status: {{parcelaForm.status}}
-  </pre>
-
-  <pre>
-    {{parcelaForm.value | json}}
-  </pre> -->
 
 </ion-content>

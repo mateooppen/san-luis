@@ -1,10 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons>
+      <ion-back-button defaultHref="/" slot="start"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Lista de Parcelas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
   <ion-list>
     <ion-searchbar inputmode="numeric" (ionChange)="buscarParcela($event)" placeholder="Buscar Parcela"></ion-searchbar>
     <ion-item button (click)="editarParcela(parcela)" *ngFor="let parcela of listaParcelas | filtro:filtroBusqueda">
       <ion-label slot="start">Parcela {{parcela.numeroParcela}}</ion-label>
-      <ion-note *ngIf="parcela.activa" color="success">Activa</ion-note>
-      <ion-note *ngIf="!parcela.activa">Inactiva</ion-note>
+      <ion-badge *ngIf="parcela.activa" color="primary">Activa</ion-badge>
+      <ion-badge *ngIf="!parcela.activa" color="medium">Inactiva</ion-badge>
       <!-- <ion-button slot="end" type="button" color="light" (click)="editarParcela(parcela)"><ion-icon name="create-outline" color="dark"></ion-icon></ion-button> -->
     </ion-item>
   </ion-list>

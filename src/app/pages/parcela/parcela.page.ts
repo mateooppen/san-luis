@@ -53,10 +53,13 @@ export class ParcelaPage implements OnInit {
 
     this.parcela = this.parcelaService.parcelaSeleccionada;
 
-    if( this.parcela ) {
+    if( this.parcela !== undefined ) {
       this.parcelaForm.setValue({
         ...this.parcela
       });
+    }
+    else {
+      this.parcelaForm.reset();
     }
   }
 
@@ -67,12 +70,12 @@ export class ParcelaPage implements OnInit {
       numeroParcela: [''],
       categoria: [''],
       cantidad: [0],
-      dueño: ['San Luis'],
+      dueño: [''],
       proxima: [''],
       agua: [false],
       sombra: [false],
-      estado: ['Bueno'],
-      remanente: ['Bien'],
+      estado: [''],
+      remanente: [''],
       maleza: [''],
       desmalezar: [false],
       ultimaLluvia: [''],
@@ -110,7 +113,7 @@ export class ParcelaPage implements OnInit {
       });
     });
 
-    this.router.navigate(['/']);
+    this.router.navigate(['/lista-parcelas']);
   }
 
 }

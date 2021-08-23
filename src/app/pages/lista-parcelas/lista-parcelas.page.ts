@@ -26,13 +26,13 @@ export class ListaParcelasPage implements OnInit {
   }
 
   nuevaParcela() {
+    this.parcelaService.parcelaSeleccionada = undefined;
     this.router.navigate(['/parcela']);
   }
 
   editarParcela(parcela) {
     this.parcelaService.parcelaSeleccionada = parcela;
     this.router.navigate(['/parcela']);
-    console.log(this.parcelaService.parcelaSeleccionada.id);
   }
 
   buscarParcela(event){
